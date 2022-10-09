@@ -1,0 +1,34 @@
+﻿@using Soccer2.Data
+@model IEnumerable<Game>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+    @foreach (var item in Model)
+    {
+        @item.Date;
+        <&nbsp></&nbsp>
+        @item.GameId;
+        <&nbsp></&nbsp>
+        @item.HomeTeamId;
+        <&nbsp></&nbsp>
+        @item.HomeResult;
+        <&nbsp></&nbsp>
+        @item.AwayResult;
+        <&nbsp></&nbsp>
+        @item.AwayTeamId;
+        <&nbsp></&nbsp>
+        @item.HomeCoef;
+        <&nbsp></&nbsp>
+        @item.AwayCoef;
+        <&nbsp></&nbsp>
+        @item.Winner;
+        <br />
+    }
+
+
+</div>
