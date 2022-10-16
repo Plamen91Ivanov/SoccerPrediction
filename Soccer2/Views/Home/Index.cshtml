@@ -11,8 +11,6 @@
     @foreach (var item in Model)
     {
         @item.Date;
-        @item.Date;
-        @item.Date;
         <&nbsp></&nbsp>
         @item.GameId;
         <&nbsp></&nbsp>
@@ -33,4 +31,13 @@
     }
 
 
+    <form method="post">
+        <input type="number" name="times" />
+        <select name="result">
+            <option value="W">Win</option>
+            <option value="X">X</option>
+            <option value="L">Loose</option>
+        </select>
+        <input type="submit" value="Find" />
+    </form>
 </div>

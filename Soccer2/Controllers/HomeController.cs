@@ -29,6 +29,23 @@ namespace Soccer2.Controllers
             return View(Games);
         }
 
+        [HttpPost]
+        public IActionResult Index(int times, string result)
+        {
+            IEnumerable<Game> Games = _db.Games.Where(x => x.Winner == result).Take(times);
+            return View(Games);
+        }
+
+        public IActionResult Test()
+        {
+            var model = new Test
+            {
+                Id = 5,
+                Name = "tst"
+            };
+            return View(model);
+        }
+
         public IActionResult Privacy()
         {
             return View();
