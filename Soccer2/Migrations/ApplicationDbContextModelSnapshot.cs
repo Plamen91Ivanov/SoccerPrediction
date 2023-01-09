@@ -219,6 +219,72 @@ namespace Soccer2.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("Soccer2.Data.BetInfo", b =>
+                {
+                    b.Property<int>("BetInfoId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<double>("AWayCoef")
+                        .HasColumnType("float");
+
+                    b.Property<int>("AwayResult")
+                        .HasColumnType("int");
+
+                    b.Property<int>("AwayResultHalfTime")
+                        .HasColumnType("int");
+
+                    b.Property<string>("AwayTeam")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("Bet")
+                        .HasColumnType("float");
+
+                    b.Property<double>("BetCoef")
+                        .HasColumnType("float");
+
+                    b.Property<string>("BetType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Comment")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<double>("DrawCoef")
+                        .HasColumnType("float");
+
+                    b.Property<double>("HomeCoef")
+                        .HasColumnType("float");
+
+                    b.Property<int>("HomeResult")
+                        .HasColumnType("int");
+
+                    b.Property<int>("HomeResultHalfTime")
+                        .HasColumnType("int");
+
+                    b.Property<string>("HomeTeam")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Result")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ResultHT")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("WinPrice")
+                        .HasColumnType("float");
+
+                    b.Property<string>("Winner")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("BetInfoId");
+
+                    b.ToTable("BetInfo");
+                });
+
             modelBuilder.Entity("Soccer2.Data.Game", b =>
                 {
                     b.Property<int>("GameId")
@@ -235,8 +301,14 @@ namespace Soccer2.Migrations
                     b.Property<int>("AwayTeamId")
                         .HasColumnType("int");
 
+                    b.Property<string>("AwayTeamName")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
+
+                    b.Property<double>("DrawCoef")
+                        .HasColumnType("float");
 
                     b.Property<double>("HomeCoef")
                         .HasColumnType("float");
@@ -245,6 +317,15 @@ namespace Soccer2.Migrations
                         .HasColumnType("int");
 
                     b.Property<int>("HomeTeamId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("HomeTeamName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("League")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("TeamId")
                         .HasColumnType("int");
 
                     b.Property<string>("Winner")
@@ -256,7 +337,51 @@ namespace Soccer2.Migrations
 
                     b.HasIndex("HomeTeamId");
 
+                    b.HasIndex("TeamId");
+
                     b.ToTable("Games");
+                });
+
+            modelBuilder.Entity("Soccer2.Data.GameInfo", b =>
+                {
+                    b.Property<int>("GameInfoId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<double>("AwayCoef")
+                        .HasColumnType("float");
+
+                    b.Property<int>("AwayResult")
+                        .HasColumnType("int");
+
+                    b.Property<string>("AwayTeam")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<double>("DrawCoef")
+                        .HasColumnType("float");
+
+                    b.Property<double>("HomeCoef")
+                        .HasColumnType("float");
+
+                    b.Property<int>("HomeResult")
+                        .HasColumnType("int");
+
+                    b.Property<string>("HomeTeam")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("League")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Winner")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("GameInfoId");
+
+                    b.ToTable("GamesInfo");
                 });
 
             modelBuilder.Entity("Soccer2.Data.Team", b =>
@@ -339,6 +464,10 @@ namespace Soccer2.Migrations
                         .WithMany("HomeGames")
                         .HasForeignKey("HomeTeamId")
                         .IsRequired();
+
+                    b.HasOne("Soccer2.Data.Team", null)
+                        .WithMany("Games")
+                        .HasForeignKey("TeamId");
                 });
 #pragma warning restore 612, 618
         }

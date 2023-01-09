@@ -16,5 +16,7 @@ namespace Soccer2.Data
         public virtual ICollection<Game> HomeGames { get; set; }
 
         public virtual ICollection<Game> AwayGames { get; set; }
+
+        public virtual ICollection<Game> Games { get; set; }
     }
 }

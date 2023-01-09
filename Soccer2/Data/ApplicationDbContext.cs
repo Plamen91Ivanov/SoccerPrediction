@@ -30,10 +30,13 @@ namespace Soccer2.Data
                 .OnDelete(DeleteBehavior.ClientSetNull);
         }
 
-
-
         public DbSet<Game> Games { get; set; }
 
         public DbSet<Team> Teams { get; set; }
+
+        public DbSet<GameInfo> GamesInfo { get; set; }
+
+        public DbSet<BetInfo> BetInfo { get; set; }
+
     }
 }

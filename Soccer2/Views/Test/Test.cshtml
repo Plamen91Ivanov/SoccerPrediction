@@ -1,0 +1,21 @@
+﻿@model IEnumerable<TeamModel>;
+
+@foreach (var team in Model)
+{
+    @team.Name;
+    <hr />
+    foreach (var game in team.HomeGames)
+    {
+        @game.HomeTeamName
+        @game.AwayTeamName
+        @game.Date
+        <hr />
+    }
+    foreach (var game in team.AwayGames)
+    {
+        @game.HomeTeamName
+        @game.AwayTeamName
+        @game.Date
+        <hr />
+    }
+}

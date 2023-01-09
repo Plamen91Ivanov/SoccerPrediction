@@ -1,0 +1,120 @@
+﻿@model IEnumerable<TeamProbability>
+<style>
+    li {
+        display: inline;
+    }
+</style>
+<form method="post" asp-controller="Home" asp-action="TeamsInformation">
+    <select name="league">
+        <option value="premier league">premier league</option>
+        <option value="parva liga">parva liga</option>
+        <option value="championship">championship</option>
+    </select>
+    <select name="sort">
+        <option value="High">High</option>
+        <option value="Current">Current</option>
+        <option value="Average">Average</option>
+    </select>
+    <input type="submit" />
+</form>
+
+<form method="post" asp-controller="Home" asp-action="TeamsInformation">
+    <button type="submit" name="league" value="premier league">Premier League</button>
+</form>
+<hr />
+<ul  >
+    <li >
+        <form method="post" asp-controller="Home" asp-action="TeamsInformation">
+            <input type="hidden" value="CurrentProbability" name="sort" />
+            <input type="submit" value="CurrentProbability"/>
+        </form>
+    </li>
+    <li>
+        <form method="post" asp-controller="Home" asp-action="TeamsInformation">
+            <input type="hidden" value="HighestProbability" name="sort" />
+            <input type="submit" value="HighestProbability" />
+        </form>
+    </li>
+    <li>
+        <form method="post" asp-controller="Home" asp-action="TeamsInformation">
+            <input type="hidden" value="AverageProbability" name="sort" />
+            <input type="submit" value="AverageProbability" />
+        </form>
+    </li>
+</ul>
+
+
+
+@foreach (var team in Model)
+{
+    <div class="row">
+        <div class="col-3">
+            <p>Team name : <strong>@team.Name</strong></p>
+            <p>Highest : <strong>@team.HighestProbability.ToString("F2")</strong></p>
+            <p>Average:<strong> @team.AverageProbability.ToString("F2")</strong></p>
+            <p>Current : <strong>@team.CurrentProbability.ToString("F2")</strong></p>
+        </div>
+        <div class="col-6">
+            @foreach (var game in team.TeamGames)
+            {
+
+                if (game.Winner == team.Name)
+                {
+                    <div class="bg-success">
+                        @game.Date.ToString("yyyy-MM-dd") :
+                        @game.HomeTeamName -
+                        @if (game.Winner == game.HomeTeamName)
+                        {
+                            <nobr><strong>@game.HomeCoef</strong> - @game.DrawCoef - @game.AwayCoef</nobr>
+                        }
+                        else
+                        {
+                            <nobr>
+                                @game.HomeCoef -
+                                @game.DrawCoef -
+                                <strong>@game.AwayCoef</strong>
+                            </nobr>
+                        }
+
+                        - @game.AwayTeamName  @game.HomeResult : @game.AwayResult
+                    </div>
+                }
+                else if (game.Winner == "x")
+                {
+                    <div class="bg-warning">
+                        @game.Date.ToString("yyyy-MM-dd") :
+                        @game.HomeTeamName -
+                        @game.HomeCoef - <strong>@game.DrawCoef</strong> - @game.AwayCoef - @game.AwayTeamName  @game.HomeResult : @game.AwayResult
+                    </div>
+                }
+                else
+                {
+                    <div class="bg-danger">
+                        @game.Date.ToString("yyyy-MM-dd") :
+                        @game.HomeTeamName
+                        @if (game.Winner == game.HomeTeamName)
+                        {
+                            <nobr><strong>@game.HomeCoef</strong> - @game.DrawCoef -   @game.AwayCoef</nobr>
+                        }
+                        else
+                        {
+                            <nobr>
+                                @game.HomeCoef -
+                                @game.DrawCoef -
+                                <strong>@game.AwayCoef</strong>
+                            </nobr>
+                        }
+                        - @game.AwayTeamName  @game.HomeResult : @game.AwayResult
+                    </div>
+                }
+
+            }
+        </div>
+        <div class="col-3">
+            <p>No Win -</p>
+            <p>Under 2.5 -</p>
+            <p>Under 3.5 - </p>
+        </div>
+    </div>
+    <hr />
+}

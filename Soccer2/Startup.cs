@@ -19,7 +19,6 @@ namespace Soccer2
     {
         public Startup(IConfiguration configuration)
         {
-           
             Configuration = configuration;
         }
 
@@ -63,7 +62,7 @@ namespace Soccer2
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Test}/{id?}");
+                    pattern: "{controller=Home}/{action=TeamsInformation}/{id?}");
                 endpoints.MapRazorPages();
             });
         }
