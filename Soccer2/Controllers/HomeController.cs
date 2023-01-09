@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Logging;
 using Soccer2.Data;
 using Soccer2.Models;
+using Soccer2.Services;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -16,10 +17,14 @@ namespace Soccer2.Controllers
 
         private readonly ApplicationDbContext _db;
 
-        public HomeController(ILogger<HomeController> logger, ApplicationDbContext db)
+        private readonly ITeamService teamService;
+
+
+        public HomeController(ILogger<HomeController> logger, ApplicationDbContext db, ITeamService teamService)
         {
             _db = db;
             _logger = logger;
+            this.teamService = teamService;
         }
 
         public IActionResult Index()
@@ -27,37 +32,39 @@ namespace Soccer2.Controllers
             //IEnumerable<GameInfo> Games = _db.GamesInfo.Where(x => x.AwayTeam == " Spartak Varna" || x.HomeTeam == "Spartak Varna");
             //IEnumerable<GameInfo> Games = _db.GamesInfo.AsEnumerable().OrderBy(c => c.Date);
             //IEnumerable<Game> Games = _db.Games.AsEnumerable().OrderBy(c => c.Date);
-            IEnumerable<TeamModel> Games = _db
-                 .Teams
-                 .Select(t => new TeamModel
-                 {
-                     Name = t.Name,
-                     AwayGames = t.AwayGames.Select(g => new Game
-                     {
-                         HomeResult = g.HomeResult,
-                         AwayResult = g.AwayResult,
-                         Date = g.Date,
-                         Winner = g.Winner,
-                         AwayCoef = g.AwayCoef,
-                         DrawCoef = g.DrawCoef,
-                         HomeCoef = g.HomeCoef,
-                         HomeTeamName = g.HomeTeamName,
-                         AwayTeamName = g.AwayTeamName
+            //IEnumerable<TeamModel> Games = _db
+            //     .Teams
+            //     .Select(t => new TeamModel
+            //     {
+            //         Name = t.Name,
+            //         AwayGames = t.AwayGames.Select(g => new Game
+            //         {
+            //             HomeResult = g.HomeResult,
+            //             AwayResult = g.AwayResult,
+            //             Date = g.Date,
+            //             Winner = g.Winner,
+            //             AwayCoef = g.AwayCoef,
+            //             DrawCoef = g.DrawCoef,
+            //             HomeCoef = g.HomeCoef,
+            //             HomeTeamName = g.HomeTeamName,
+            //             AwayTeamName = g.AwayTeamName
 
-                     }),
-                     HomeGames = t.HomeGames.Select(g => new Game
-                     {
-                         HomeResult = g.HomeResult,
-                         AwayResult = g.AwayResult,
-                         Date = g.Date,
-                         Winner = g.Winner,
-                         AwayCoef = g.AwayCoef,
-                         DrawCoef = g.DrawCoef,
-                         HomeCoef = g.HomeCoef,
-                         HomeTeamName = g.HomeTeamName,
-                         AwayTeamName = g.AwayTeamName
-                     })
-                 }).Take(10); 
+            //         }),
+            //         HomeGames = t.HomeGames.Select(g => new Game
+            //         {
+            //             HomeResult = g.HomeResult,
+            //             AwayResult = g.AwayResult,
+            //             Date = g.Date,
+            //             Winner = g.Winner,
+            //             AwayCoef = g.AwayCoef,
+            //             DrawCoef = g.DrawCoef,
+            //             HomeCoef = g.HomeCoef,
+            //             HomeTeamName = g.HomeTeamName,
+            //             AwayTeamName = g.AwayTeamName
+            //         })
+            //     }).Take(10); 
+
+            var Games = this.teamService.First10();
 
             List<TeamModel> TeamsWithSortedGames = new List<TeamModel>();
 

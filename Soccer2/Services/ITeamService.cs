@@ -9,7 +9,7 @@ namespace Soccer2.Services
 {
     public interface ITeamService
     {
-        IEnumerable<TeamModel> All();
+        IEnumerable<TeamModel> First10();
 
         TeamModel ById();
     }
