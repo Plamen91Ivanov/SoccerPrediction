@@ -16,8 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Services\Implementations\" />
-    <Folder Include="Services\Model\" />
     <Folder Include="Views\Match\" />
     <Folder Include="wwwroot\images\" />
   </ItemGroup>
