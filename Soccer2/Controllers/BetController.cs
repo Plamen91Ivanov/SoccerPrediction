@@ -18,7 +18,7 @@ namespace Soccer2.Controllers
         }
 
         public IActionResult Bet()
-        {
+        {  
             return View();
         }
 

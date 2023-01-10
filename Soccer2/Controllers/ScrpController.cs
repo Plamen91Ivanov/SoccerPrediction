@@ -72,9 +72,8 @@ namespace Soccer2.Controllers
 
             HtmlWeb web = new HtmlWeb();
 
-            var country = "bulgaria";
-            var league = "parva-liga";
-
+            var country = "england";
+            var league = "premier-league";
             //HtmlDocument doc = web.Load($"https://www.betexplorer.com/soccer/england/premier-league/results/");
 
             HtmlDocument doc = web.Load($"https://www.betexplorer.com/soccer/{country}/{league}/results/");
@@ -87,8 +86,10 @@ namespace Soccer2.Controllers
             var HeaderNames = doc.DocumentNode.SelectNodes("//tr");
 
             //get last match date 
-            var getLastMatch = this.db.Games.OrderByDescending(x => x.Date).FirstOrDefault();
-            var lastMatchDate = getLastMatch.Date;
+            //var getLastMatch = this.db.Games.Where(x => x.League == league).OrderByDescending(x => x.Date).FirstOrDefault();
+
+            DateTime lastMatchDate = new DateTime();
+             
             for (int i = 1; i < HeaderNames.Count -1; i++)
             {
 
@@ -114,7 +115,21 @@ namespace Soccer2.Controllers
                 var DrawCoefSplit = Convert.ToDouble(MatchDetails[3].OuterHtml.Split("data-odd")[1].Split('>')[0].Split('\"')[1]); // x coef same
                 var AwayCoefSplit = Convert.ToDouble(MatchDetails[4].OuterHtml.Split("data-odd")[1].Split('>')[0].Split('\"')[1]); // coef same 
                 var DateSplit = MatchDetails[5].OuterHtml.Split('>')[1].Split('>')[0].Split('>')[0].Split('<')[0]; // this is mby date >after that [0]
-                    var parseDate = DateTime.Parse(DateSplit);
+
+                    var swapDayAndMonth = DateSplit.Split('.');
+                    var month = int.Parse(swapDayAndMonth[1]);
+                    var swapDay = "";
+                    if (month < 2)
+                    {
+                         swapDay = swapDayAndMonth[1] + '.' + swapDayAndMonth[0];
+                    }
+                    else
+                    {
+                         swapDay = "2022" + '.' + swapDayAndMonth[1] + '.' + swapDayAndMonth[0];
+                    }
+
+                    var parseDate = DateTime.Parse(swapDay);
+
                     if (parseDate > lastMatchDate)
                     {
 
@@ -146,8 +161,17 @@ namespace Soccer2.Controllers
                     else 
                     {
                         var t = DateSplit.Split('.');
-                        var ReversedDate = $"{t[1]}.{t[0]}";
-                        date = DateTime.Parse(ReversedDate);
+                            var ReversedDate = "";
+                            if (t[2] != "2022")
+                            {
+                                 ReversedDate = $"{t[1]}.{t[0]}";
+                            }
+                            else
+                            {
+                                 ReversedDate = $"{t[2]}.{t[1]}.{t[0]}";
+
+                            }
+                            date = DateTime.Parse(ReversedDate);
                     }
 
 

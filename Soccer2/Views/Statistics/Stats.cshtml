@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Game>
+<style>
+    li
+    {
+        padding: 5px;
+    }
+
+</style>
+<div class="row">
+     <div class="col-2 border">
+         <ul>
+             <li class="dropdown">
+                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                     Bulgaria
+                 </button>
+                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                     <a class="dropdown-item" href="stats/1">Purva liga</a>
+                 </div>
+             </li>
+             <li>
+                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                     England
+                 </button>
+                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                     <a class="dropdown-item" href="stats/2">Premier league</a>
+                     <a class="dropdown-item" href="championship">Championship</a>
+                 </div>
+             </li>
+             <li>
+                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                     Italy
+                 </button>
+                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                     <a class="dropdown-item" href="#">Seria A</a>
+                 </div>
+             </li>
+             <li>
+                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                     France
+                 </button>
+                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                     <a class="dropdown-item" href="#">Ligue 1</a>
+                 </div>
+             </li>
+         </ul>
+     </div>
+     <div class="col-10 border">
+         @foreach (var match in Model)
+         {
+                <p>@match.HomeTeamName - @match.HomeResult : @match.AwayResult - @match.AwayTeamName</p>
+         }
+     </div>
+</div>
