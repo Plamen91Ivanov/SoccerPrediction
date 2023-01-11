@@ -18,17 +18,21 @@ namespace Soccer2.Controllers
             this.db = db;
             this.statistics = statistics;
         }
-        public IActionResult Stats(int id)
+        public IActionResult Stats(int id, int page)
         {
+            const int PageSize = 25;
             var league = new List<Game>();
 
             switch (id)
             {
                 case 1:
-                     league = this.db.Games.Where(x => x.League == "purva liga").ToList();
+                     league = this.db.Games.Where(x => x.League == "purva liga")
+                        .Skip((page - 1) * PageSize)
+                        .Take(PageSize)
+                        .ToList();
                     break;
                 case 2:
-                     league = this.db.Games.Where(x => x.League == "premier league").ToList();
+                     league = this.db.Games.Where(x => x.League == "premier-league").ToList();
                     break;
                 case 3:
                      league = this.db.Games.Where(x => x.League == "championship").ToList();
