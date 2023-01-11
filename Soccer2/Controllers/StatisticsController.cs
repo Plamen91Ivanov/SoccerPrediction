@@ -32,10 +32,15 @@ namespace Soccer2.Controllers
                         .ToList();
                     break;
                 case 2:
-                     league = this.db.Games.Where(x => x.League == "premier-league").ToList();
+                     league = this.db.Games.Where(x => x.League == "premier-league").Skip((page - 1) * PageSize)
+                        .Take(PageSize)
+                        .ToList();
                     break;
                 case 3:
-                     league = this.db.Games.Where(x => x.League == "championship").ToList();
+                     league = this.db.Games.Where(x => x.League == "championship")
+                        .Skip((page - 1) * PageSize)
+                        .Take(PageSize)
+                        .ToList();
                     break;
                 default:
                     break;
