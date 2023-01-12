@@ -27,12 +27,13 @@ namespace Soccer2.Controllers
             {
                 case 1:
                      league = this.db.Games.Where(x => x.League == "purva liga")
-                        .Skip((page - 1) * PageSize)
+                        .Skip((1) * PageSize)
                         .Take(PageSize)
                         .ToList();
                     break;
                 case 2:
-                     league = this.db.Games.Where(x => x.League == "premier-league").Skip((page - 1) * PageSize)
+                     league = this.db.Games.Where(x => x.League == "premier-league")
+                        .Skip((1) * PageSize)
                         .Take(PageSize)
                         .ToList();
                     break;
@@ -46,6 +47,12 @@ namespace Soccer2.Controllers
                     break;
             }
             return View(league);
+        }
+
+        public IActionResult Teams()
+        {
+            var teams = this.db.Teams.ToList();
+            return View(teams);
         }
     }
 }
