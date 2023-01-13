@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Game>
+﻿@model IEnumerable<ServiceTeamModel>
 <style>
     li
     {
@@ -14,7 +14,7 @@
                      Bulgaria
                  </button>
                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                     <a class="dropdown-item" href="/statistics/stats/1">Purva liga</a>
+                     <a class="dropdown-item" href="/statistics/stats/parva-liga">Purva liga</a>
                  </div>
              </li>
              <li>
@@ -22,7 +22,7 @@
                      England
                  </button>
                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                     <a class="dropdown-item" href="/statistics/stats/2">Premier league</a>
+                     <a class="dropdown-item" href="/statistics/stats/premier-league">Premier league</a>
                      <a class="dropdown-item" href="championship">Championship</a>
                  </div>
              </li>
@@ -45,9 +45,9 @@
          </ul>
      </div>
      <div class="col-10 border">
-         @foreach (var match in Model)
+         @foreach (var team in Model)
          {
-                <p>@match.HomeTeamName - @match.HomeResult : @match.AwayResult - @match.AwayTeamName</p>
+             <p>@team.Name</p>
          }
      </div>
 </div>

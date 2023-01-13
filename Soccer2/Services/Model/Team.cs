@@ -5,8 +5,10 @@ using System.Threading.Tasks;
 
 namespace Soccer2.Services.Model
 {
-    public class Team
+    public class ServiceTeamModel
     {
+        public string Name { get; set; }
 
+        public string League { get; set; }
     }
 }
