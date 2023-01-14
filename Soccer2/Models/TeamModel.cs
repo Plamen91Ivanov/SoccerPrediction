@@ -19,5 +19,6 @@ namespace Soccer2.Models
         public IEnumerable<Game> Games { get; set; }
 
         public List<Game> Matches { get; set; }
+
     }
 }

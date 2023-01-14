@@ -50,6 +50,8 @@ namespace Soccer2.Services.Implementations
                 .Select(t => new TeamModel
                 {
                     Name = t.Name,
+                    League = t.League,
+                    Games = t.Games.Where(x => x.AwayTeamName == t.Name && x.HomeTeamName == t.Name),
                     AwayGames = t.AwayGames.Select(g => new Game
                     {
                         HomeResult = g.HomeResult,
@@ -75,6 +77,8 @@ namespace Soccer2.Services.Implementations
                         AwayTeamName = g.AwayTeamName
                     })
                 });
+
+
             ;
         }
     }
