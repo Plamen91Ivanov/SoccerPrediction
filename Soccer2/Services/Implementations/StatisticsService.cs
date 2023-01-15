@@ -75,9 +75,24 @@ namespace Soccer2.Services.Implementations
                         HomeCoef = g.HomeCoef,
                         HomeTeamName = g.HomeTeamName,
                         AwayTeamName = g.AwayTeamName
-                    })
+                    }),
                 });
+            ;
+        }
 
+        public void TeamStatsSortExcersise(string name)
+        {
+            var teamMatches = this.db.Games.Where(x => x.HomeTeamName == name || x.AwayTeamName == name)
+                .ToList();
+
+            var tottalGoalsPerGame = 0;
+            foreach (var game in teamMatches)
+            {
+                var goalsPerGame = game.HomeResult + game.AwayResult;
+                tottalGoalsPerGame += goalsPerGame;
+            }
+
+            double avrGoals = tottalGoalsPerGame / teamMatches.Count;
 
             ;
         }

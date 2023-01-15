@@ -13,5 +13,7 @@ namespace Soccer2.Services
         IEnumerable<ServiceTeamModel> TeamByLeague(string league);
 
         void TeamByLeagueStatistics(string league);
+
+        void TeamStatsSortExcersise(string name);
     }
 }

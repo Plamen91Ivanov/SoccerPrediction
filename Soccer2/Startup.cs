@@ -71,8 +71,7 @@ namespace Soccer2
                    pattern: "{controller=Statistics}/{action=Stats}/{league?}");
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=TeamsInformation}/{id?}");
-               
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
             });
         }

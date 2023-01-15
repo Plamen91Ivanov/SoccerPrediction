@@ -18,7 +18,7 @@ namespace Soccer2.Controllers
             this.db = db;
             this.statistics = statistics;
         }
-        public IActionResult Stats(string league, int page)
+        public IActionResult Stats(string league, int page, int id)
         {
             const int PageSize = 25;
             
@@ -26,9 +26,9 @@ namespace Soccer2.Controllers
 
             if (league != null)
             {
-            this.statistics.TeamByLeagueStatistics(league);
-
+                 this.statistics.TeamByLeagueStatistics(league);
             }
+ 
             //switch (id)
             //{
             //    case 1:
@@ -60,5 +60,12 @@ namespace Soccer2.Controllers
             var teams = this.db.Teams.ToList();
             return View(teams);
         }
-    }
+
+        public IActionResult Team(string league)
+        {
+            var teamName = league;
+            this.statistics.TeamStatsSortExcersise(teamName);
+            return View();
+        }
+    }   
 }

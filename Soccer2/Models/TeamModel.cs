@@ -20,5 +20,6 @@ namespace Soccer2.Models
 
         public List<Game> Matches { get; set; }
 
+        public int  GamesNumber { get; set; }
     }
 }
