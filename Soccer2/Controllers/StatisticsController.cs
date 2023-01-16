@@ -18,7 +18,8 @@ namespace Soccer2.Controllers
             this.db = db;
             this.statistics = statistics;
         }
-        public IActionResult Stats(string league, int page, int id)
+
+        public IActionResult Stats(string league, int num, int id)
         {
             const int PageSize = 25;
             
@@ -61,7 +62,8 @@ namespace Soccer2.Controllers
             return View(teams);
         }
 
-        public IActionResult Team(string league)
+        [HttpGet("/statistics/team/{league}/{num}")]
+        public IActionResult Team(string league,int num)
         {
             var teamName = league;
             var statistics = this.statistics.TeamStatsSortExcersise(teamName);
