@@ -86,8 +86,24 @@ namespace Soccer2.Services.Implementations
                 .ToList();
 
             var avrGoalsPerGame = AverageGoalsPerGame(teamMatches);
-
+            var lastGamesGoals = GoalsLastGames(3, teamMatches);
             ;
+        }
+
+        //last 3 games 
+        
+        public int GoalsLastGames(int numberOfGames,List<Game> teamMatches)
+        {
+            var goals = 0;
+            if (numberOfGames <= teamMatches.Count)
+            {
+                for (int i = 0; i < numberOfGames; i++)
+                {
+                     goals += teamMatches[i].HomeResult + teamMatches[i].AwayResult;
+                }
+            }
+
+            return goals;
         }
 
         public double AverageGoalsPerGame(List<Game> teamMatches)
