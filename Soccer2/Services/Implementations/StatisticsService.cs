@@ -85,6 +85,13 @@ namespace Soccer2.Services.Implementations
             var teamMatches = this.db.Games.Where(x => x.HomeTeamName == name || x.AwayTeamName == name)
                 .ToList();
 
+            var avrGoalsPerGame = AverageGoalsPerGame(teamMatches);
+
+            ;
+        }
+
+        public double AverageGoalsPerGame(List<Game> teamMatches)
+        {
             var tottalGoalsPerGame = 0;
             foreach (var game in teamMatches)
             {
@@ -92,9 +99,8 @@ namespace Soccer2.Services.Implementations
                 tottalGoalsPerGame += goalsPerGame;
             }
 
-            double avrGoals = tottalGoalsPerGame / teamMatches.Count;
-
-            ;
+            double avrGoals = (double)tottalGoalsPerGame / (double)teamMatches.Count;
+            return avrGoals;
         }
     }
 }
