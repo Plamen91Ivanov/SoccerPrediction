@@ -14,6 +14,6 @@ namespace Soccer2.Services
 
         void TeamByLeagueStatistics(string league);
 
-        void TeamStatsSortExcersise(string name);
+        ServiceStatisticsModel TeamStatsSortExcersise(string name);
     }
 }

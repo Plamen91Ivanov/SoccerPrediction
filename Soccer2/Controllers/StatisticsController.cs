@@ -64,8 +64,9 @@ namespace Soccer2.Controllers
         public IActionResult Team(string league)
         {
             var teamName = league;
-            this.statistics.TeamStatsSortExcersise(teamName);
-            return View();
+            var statistics = this.statistics.TeamStatsSortExcersise(teamName);
+
+            return View(statistics);
         }
     }   
 }

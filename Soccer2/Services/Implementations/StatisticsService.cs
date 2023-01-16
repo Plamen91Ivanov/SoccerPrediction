@@ -80,14 +80,20 @@ namespace Soccer2.Services.Implementations
             ;
         }
 
-        public void TeamStatsSortExcersise(string name)
+        public ServiceStatisticsModel TeamStatsSortExcersise(string name)
         {
             var teamMatches = this.db.Games.Where(x => x.HomeTeamName == name || x.AwayTeamName == name)
                 .ToList();
 
-            var avrGoalsPerGame = AverageGoalsPerGame(teamMatches);
-            var lastGamesGoals = GoalsLastGames(3, teamMatches);
-            ;
+            double avrGoalsPerGame = AverageGoalsPerGame(teamMatches);
+            int tottalGoalsLastGames = GoalsLastGames(3, teamMatches);
+
+            var goalsStatistics = new ServiceStatisticsModel();
+            
+            goalsStatistics.AverageGoalsPerGame = avrGoalsPerGame;
+            goalsStatistics.TottalGoalsLastGames = tottalGoalsLastGames;
+
+            return goalsStatistics;
         }
 
         //last 3 games 
