@@ -22,7 +22,7 @@ namespace Soccer2.Controllers
         public IActionResult Stats(string league, int num, int id)
         {
             const int PageSize = 25;
-            
+            ViewBag.League = league;
             var teamLeague = this.statistics.TeamByLeague(league);
 
             if (league != null)
@@ -62,11 +62,11 @@ namespace Soccer2.Controllers
             return View(teams);
         }
 
-        [HttpGet("/statistics/team/{league}/{num}")]
-        public IActionResult Team(string league,int num)
+        [HttpGet("/statistics/team/{league}/{gamesNumber}")]
+        public IActionResult Team(string league,int gamesNumber)
         {
             var teamName = league;
-            var statistics = this.statistics.TeamStatsSortExcersise(teamName);
+            var statistics = this.statistics.TeamStatsSortExcersise(teamName, gamesNumber);
 
             return View(statistics);
         }

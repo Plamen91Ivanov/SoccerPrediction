@@ -80,13 +80,13 @@ namespace Soccer2.Services.Implementations
             ;
         }
 
-        public ServiceStatisticsModel TeamStatsSortExcersise(string name)
+        public ServiceStatisticsModel TeamStatsSortExcersise(string name, int gamesNumber)
         {
             var teamMatches = this.db.Games.Where(x => x.HomeTeamName == name || x.AwayTeamName == name)
                 .ToList();
 
             double avrGoalsPerGame = AverageGoalsPerGame(teamMatches);
-            int tottalGoalsLastGames = GoalsLastGames(3, teamMatches);
+            int tottalGoalsLastGames = GoalsLastGames(gamesNumber, teamMatches);
 
             var goalsStatistics = new ServiceStatisticsModel();
             
@@ -99,12 +99,12 @@ namespace Soccer2.Services.Implementations
         //last 3 games 
 
         
-        public int GoalsLastGames(int numberOfGames,List<Game> teamMatches)
+        public int GoalsLastGames(int gamesNumber, List<Game> teamMatches)
         {
             var goals = 0;
-            if (numberOfGames <= teamMatches.Count)
+            if (gamesNumber <= teamMatches.Count)
             {
-                for (int i = 0; i < numberOfGames; i++)
+                for (int i = 0; i < gamesNumber; i++)
                 {
                      goals += teamMatches[i].HomeResult + teamMatches[i].AwayResult;
                 }

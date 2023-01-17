@@ -1,66 +1,66 @@
 ﻿@model IEnumerable<ServiceTeamModel>
 <style>
-    li
-    {
+    li {
         padding: 5px;
     }
 </style>
 
-    <nav aria-label="Page navigation example" >
-    <ul class="pagination" >
-    <li class="page-item" > <a class="page-link" href="#" > Previous</a > </li >
-    <li class="page-item" > <a class="page-link" href="#" > 1</a > </li >
-    <li class="page-item" > <a class="page-link" href="#" > 2</a > </li >
-    <li class="page-item" > <a class="page-link" href="#" > 3</a > </li >
-    <li class="page-item" > <a class="page-link" href="#" > 4</a > </li >
-    <li class="page-item" > <a class="page-link" href="#" > 5</a > </li >
-    <li class="page-item" > <a class="page-link" href="#" > Next</a > </li >
-    </ul >
-    </nav >
-  
-<div class="row">
-     <div class="col-2 border">
-         <ul>
-             <li class="dropdown">
-                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                     Bulgaria
-                 </button>
-                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                     <a class="dropdown-item" href="/statistics/stats/parva-liga">Purva liga</a>
-                 </div>
-             </li>
-             <li>
-                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                     England
-                 </button>
-                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                     <a class="dropdown-item" href="/statistics/stats/premier-league">Premier league</a>
-                     <a class="dropdown-item" href="championship">Championship</a>
-                 </div>
-             </li>
-             <li>
-                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                     Italy
-                 </button>
-                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                     <a class="dropdown-item" href="#">Seria A</a>
-                 </div>
-             </li>
-             <li>
-                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                     France
-                 </button>
-                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                     <a class="dropdown-item" href="#">Ligue 1</a>
-                 </div>
-             </li>
-         </ul>
-     </div>
+@if (ViewBag.League != null)
+{
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            <li class="page-item"> <a class="page-link" href="/statistics/team/@ViewBag.League/1"> 1</a> </li>
+            <li class="page-item"> <a class="page-link" href="/statistics/team/@ViewBag.League/2"> 2</a> </li>
+            <li class="page-item"> <a class="page-link" href="/statistics/team/@ViewBag.League/3"> 3</a> </li>
+            <li class="page-item"> <a class="page-link" href="/statistics/team/@ViewBag.League/4"> 4</a> </li>
+            <li class="page-item"> <a class="page-link" href="/statistics/team/@ViewBag.League/5"> 5</a> </li>
+        </ul>
+    </nav>
+}
 
-     <div class="col-10 border">
-         @foreach (var team in Model)
-         {
-             <p><a href="/statistics/team/@team.Name">@team.Name</a></p>
-         }
-     </div>
+<div class="row">
+    <div class="col-2 border">
+        <ul>
+            <li class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Bulgaria
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="/statistics/stats/parva-liga">Purva liga</a>
+                </div>
+            </li>
+            <li>
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    England
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="/statistics/stats/premier-league">Premier league</a>
+                    <a class="dropdown-item" href="championship">Championship</a>
+                </div>
+            </li>
+            <li>
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Italy
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#">Seria A</a>
+                </div>
+            </li>
+            <li>
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    France
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#">Ligue 1</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="col-10 border">
+        @foreach (var team in Model)
+        {
+            <p><a href="/statistics/team/@team.Name">@team.Name</a></p>
+        }
+    </div>
 </div>
