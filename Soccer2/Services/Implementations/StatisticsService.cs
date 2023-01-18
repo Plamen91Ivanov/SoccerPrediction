@@ -89,7 +89,7 @@ namespace Soccer2.Services.Implementations
             int tottalGoalsLastGames = GoalsLastGames(gamesNumber, teamMatches);
 
             var goalsStatistics = new ServiceStatisticsModel();
-            
+            GamesWithSameResult(gamesNumber,teamMatches, name);
             goalsStatistics.AverageGoalsPerGame = avrGoalsPerGame;
             goalsStatistics.TottalGoalsLastGames = tottalGoalsLastGames;
 
@@ -97,7 +97,6 @@ namespace Soccer2.Services.Implementations
         }
 
         //last 3 games 
-
         
         public int GoalsLastGames(int gamesNumber, List<Game> teamMatches)
         {
@@ -124,6 +123,17 @@ namespace Soccer2.Services.Implementations
 
             double avrGoals = (double)tottalGoalsPerGame / (double)teamMatches.Count;
             return avrGoals;
+        }
+
+        public void GamesWithSameResult(int gamesNumber, List<Game> teamMatches,string teamName)
+        {
+            foreach (var game in teamMatches)
+            {
+                for (int i = 0; i < gamesNumber; i++)
+                {
+                     
+                }
+            }
         }
     }
 }

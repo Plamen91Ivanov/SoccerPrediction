@@ -62,7 +62,7 @@ namespace Soccer2.Controllers
             return View(teams);
         }
 
-        [HttpGet("/statistics/team/{league}/{gamesNumber}")]
+        [HttpGet("/statistics/team/{league}/{gamesNumber?}")]
         public IActionResult Team(string league,int gamesNumber)
         {
             var teamName = league;
