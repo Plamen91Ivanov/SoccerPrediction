@@ -133,6 +133,10 @@ namespace Soccer2.Services.Implementations
                 {
                      
                 }
+                for (int i = 0; i < gamesNumber; i++)
+                {
+
+                }
             }
         }
     }
