@@ -131,8 +131,12 @@ namespace Soccer2.Services.Implementations
             {
                 for (int i = 0; i < gamesNumber; i++)
                 {
-                     
                 }
+                for (int i = 0; i < gamesNumber; i++)
+                {
+
+                }
+                var neww = "";
                 for (int i = 0; i < gamesNumber; i++)
                 {
 
