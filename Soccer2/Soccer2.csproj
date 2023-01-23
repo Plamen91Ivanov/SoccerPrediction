@@ -19,6 +19,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Areas\Exercises\Controllers\" />
+    <Folder Include="Areas\Exercises\Data\" />
+    <Folder Include="Areas\Exercises\Models\" />
+    <Folder Include="Areas\Exercises\Views\" />
     <Folder Include="Areas\Team\Controllers\" />
     <Folder Include="Areas\Team\Data\" />
     <Folder Include="Areas\Team\Models\" />

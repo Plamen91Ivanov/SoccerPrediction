@@ -1,0 +1,8 @@
+﻿Scrp 
+- get future matches 
+
+
+- implement betting simulation
+
+- user bet history with statistics 
+ 
