@@ -23,6 +23,10 @@
     <Folder Include="Areas\Exercises\Data\" />
     <Folder Include="Areas\Exercises\Models\" />
     <Folder Include="Areas\Exercises\Views\" />
+    <Folder Include="Areas\League\Controllers\" />
+    <Folder Include="Areas\League\Data\" />
+    <Folder Include="Areas\League\Models\" />
+    <Folder Include="Areas\League\Views\" />
     <Folder Include="Areas\Team\Controllers\" />
     <Folder Include="Areas\Team\Data\" />
     <Folder Include="Areas\Team\Models\" />
