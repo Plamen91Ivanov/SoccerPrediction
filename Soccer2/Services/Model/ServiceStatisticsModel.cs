@@ -10,5 +10,6 @@ namespace Soccer2.Services.Model
         public double AverageGoalsPerGame { get; set; }
 
         public int TottalGoalsLastGames { get; set; }
+
     }
 }

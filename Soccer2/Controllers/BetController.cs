@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Soccer2.Data;
 using Soccer2.Models;
 using System;
@@ -10,10 +11,14 @@ namespace Soccer2.Controllers
 {
     public class BetController : Controller
     {
+
+        private readonly UserManager<IdentityUser> userManager;
+
         private readonly ApplicationDbContext db;
 
-        public BetController(ApplicationDbContext db)
+        public BetController(ApplicationDbContext db, UserManager<IdentityUser> userManager)
         {
+            userManager = this.userManager;
             db = this.db;
         }
 
@@ -37,7 +42,6 @@ namespace Soccer2.Controllers
             DateTime Date
             )
         {
-
             var WinPrice = Bet * BetCoef;
             var betModel = new BetInfo
             {
