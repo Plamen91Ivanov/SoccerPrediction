@@ -11,15 +11,14 @@ namespace Soccer2.Controllers
 {
     public class BetController : Controller
     {
-
         private readonly UserManager<IdentityUser> userManager;
 
         private readonly ApplicationDbContext db;
 
         public BetController(ApplicationDbContext db, UserManager<IdentityUser> userManager)
         {
-            userManager = this.userManager;
-            db = this.db;
+            this.userManager = userManager;
+            this.db = db;
         }
 
         public IActionResult Bet()
@@ -58,7 +57,7 @@ namespace Soccer2.Controllers
                 WinPrice = WinPrice,
                 Date = Date,
             };
-            var addMatch = this.db.BetInfo.Add(betModel);
+            this.db.BetInfo.Add(betModel);
             this.db.SaveChanges();
             return Content($"Hello {HomeTeam} {AwayTeam} {HomeCoef} {DrawCoef} {AwayCoef} {Bet} {BetType} {CurrentBalance}");
         }
