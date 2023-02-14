@@ -40,6 +40,7 @@ namespace Soccer2
 
             services.AddTransient<ITeamService, TeamService>();
             services.AddTransient<IStatisticsService, StatisticsService>();
+            services.AddTransient<IBetService, BetService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

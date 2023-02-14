@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Soccer2.Data;
 using Soccer2.Models;
+using Soccer2.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,15 +16,20 @@ namespace Soccer2.Controllers
 
         private readonly ApplicationDbContext db;
 
-        public BetController(ApplicationDbContext db, UserManager<IdentityUser> userManager)
+        private readonly IBetService bet;
+
+        public BetController(ApplicationDbContext db, UserManager<IdentityUser> userManager, IBetService bet)
         {
             this.userManager = userManager;
             this.db = db;
+            this.bet = bet;
         }
 
         public IActionResult Bet()
-        {  
-            return View();
+        {
+            var bets = this.bet.All();
+
+            return View(bets);
         }
 
         [HttpPost]

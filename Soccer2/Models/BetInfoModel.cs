@@ -43,6 +43,10 @@ namespace Soccer2.Models
 
         public double WinPrice { get; set; }
 
+        public string League { get; set; }
+        
+        public string ResultStatus { get; set; }
+
         public DateTime Date { get; set; }
     }
 }
