@@ -2,16 +2,19 @@
 
 
 <div class="container">
-    @foreach (var bet in Model)
-    {
-        <h1>@bet.AwayTeam</h1>
-    }
+    
 </div>
 <hr />
 <div class="container">
     <div class="row">
         <div class="col-4">
             <h1>Past</h1>
+            <div>
+                @foreach (var bet in Model)
+                {
+                <h3>@bet.Date - @bet.HomeTeam - @bet.HomeCoef : @bet.AWayCoef - @bet.AwayTeam</h3> 
+                }
+            </div>
         </div>
         <div class="col-4">
             <h1>Today</h1>
