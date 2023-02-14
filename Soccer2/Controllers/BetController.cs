@@ -39,6 +39,7 @@ namespace Soccer2.Controllers
             double CurrentBalance,
             double BetCoef,
             string ResultStatus,
+            string League,
             DateTime Date
             )
         {
@@ -57,6 +58,7 @@ namespace Soccer2.Controllers
                 BetCoef = BetCoef,
                 WinPrice = WinPrice,
                 ResultStatus = ResultStatus,
+                League = League,
                 Date = Date,
             };
             this.db.BetInfo.Add(betModel);

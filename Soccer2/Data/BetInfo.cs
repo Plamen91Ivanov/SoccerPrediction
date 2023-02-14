@@ -45,6 +45,8 @@ namespace Soccer2.Data
 
         public string ResultStatus { get; set; }
 
+        public string League { get; set; }
+
         public DateTime Date { get; set; }
     }
 }
