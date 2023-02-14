@@ -38,6 +38,7 @@ namespace Soccer2.Controllers
             string BetType,
             double CurrentBalance,
             double BetCoef,
+            string ResultStatus,
             DateTime Date
             )
         {
@@ -55,11 +56,12 @@ namespace Soccer2.Controllers
                 BetType = BetType,
                 BetCoef = BetCoef,
                 WinPrice = WinPrice,
+                ResultStatus = ResultStatus,
                 Date = Date,
             };
             this.db.BetInfo.Add(betModel);
             this.db.SaveChanges();
-            return Content($"Hello {HomeTeam} {AwayTeam} {HomeCoef} {DrawCoef} {AwayCoef} {Bet} {BetType} {CurrentBalance}");
+            return View();
         }
     }
 }

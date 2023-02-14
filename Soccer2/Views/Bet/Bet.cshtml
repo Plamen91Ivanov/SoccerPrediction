@@ -40,12 +40,28 @@
             </div>
         </div>
         <hr />
-        <input type="text" placeholder="Bet" name="Bet" /> <hr />
-        <input type="text" placeholder="Bet Coef" name="BetCoef" /> <hr />
-        <input type="text" placeholder="Bet Type" name="BetType" /> <hr />
-        <input type="text" placeholder="Current Ballance" name="CurrentBalance" /> <hr />
-        <label for="birthday">Birthday:</label>
-        <input type="datetime-local"  name="Date">
+        <div class="row">
+            <div class="col-3">
+                <input type="text" placeholder="Bet" name="Bet" /> <hr />
+            </div>
+            <div class="col-3">
+                <input type="text" placeholder="Bet Coef" name="BetCoef" /> <hr />
+            </div>
+            <div class="col-3">
+                <input type="text" placeholder="Bet Type" name="BetType" /> <hr />
+            </div>
+            <div class="col-3">
+                <input type="text" placeholder="Current Ballance" name="CurrentBalance" /> <hr />
+            </div>
+        </div>
+        <hr />
+        <select type="text" name="ResultStatus">
+            <option value="win">Win</option>
+            <option value="loose">Loose</option>
+            <option value="Current">Current</option>
+        </select>
+        <label for="date">date:</label>
+        <input type="datetime-local" name="Date">
         <input type="submit" />
     </form>
         </div>
