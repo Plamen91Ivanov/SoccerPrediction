@@ -47,6 +47,8 @@ namespace Soccer2.Data
 
         public string League { get; set; }
 
+        public int BetTimes { get; set; }
+
         public DateTime Date { get; set; }
     }
 }

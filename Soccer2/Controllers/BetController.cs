@@ -46,6 +46,7 @@ namespace Soccer2.Controllers
             double BetCoef,
             string ResultStatus,
             string League,
+            int BetTimes,
             DateTime Date
             )
         {
@@ -66,10 +67,11 @@ namespace Soccer2.Controllers
                 ResultStatus = ResultStatus,
                 League = League,
                 Date = Date,
+                BetTimes = BetTimes,
             };
             this.db.BetInfo.Add(betModel);
             this.db.SaveChanges();
-            return View();
+            return RedirectToAction();
         }
     }
 }

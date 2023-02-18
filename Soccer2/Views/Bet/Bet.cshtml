@@ -1,29 +1,90 @@
 ﻿@model IEnumerable<BetInfo>
 
+<h1>Bet</h1>
 
 <div class="container">
-    
 </div>
 <hr />
-<div class="container">
-    <div class="row">
-        <div class="col-4">
-            <h1>Past</h1>
-            <div>
-                @foreach (var bet in Model)
-                {
-                <h3>@bet.Date - @bet.HomeTeam - @bet.HomeCoef : @bet.AWayCoef - @bet.AwayTeam</h3> 
-                }
-            </div>
-        </div>
-        <div class="col-4">
-            <h1>Today</h1>
-        </div>
-        <div class="col-4">
-            <h1>Future</h1>
-        </div>
-    </div>
-</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Date
+            </th>
+            <th>
+                League
+            </th>
+            <th>
+                Home Team
+            </th>
+            <th>
+                Home Result
+            </th>
+            <th>
+                Away Result
+            </th>
+            <th>
+                Away Team
+            </th>
+            <th>
+                HomeTeamCoef
+            </th>
+            <th>
+                DrawCoef
+            </th>
+            <th>
+                AwayTeamCoef
+            </th>
+            <th>
+                Bet Times
+            </th>
+            <th>
+                Status
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var bet in Model)
+        {
+
+        <tr>
+            <td>
+                @bet.Date.ToString("yyyy-MM-dd")
+            </td>
+            <td>
+                @bet.League
+            </td>
+            <td>
+                @bet.HomeTeam
+            </td>
+            <td>
+                @bet.HomeResult
+            </td>
+            <td>
+                @bet.AwayResult
+            </td>
+            <td>
+                @bet.AwayTeam
+            </td>
+            <td>
+                @bet.HomeCoef
+            </td>
+            <td>
+                @bet.DrawCoef
+            </td>
+            <td>
+                @bet.AWayCoef
+            </td>
+            <td>
+                @bet.BetTimes
+            </td>
+            <td>
+                @bet.ResultStatus
+            </td>
+        </tr>
+        }
+    </tbody>
+</table> 
 <hr />
 <div class="container">
     <form method="POST">
@@ -80,10 +141,12 @@
         </select>
         <label for="date">date:</label>
         <input type="datetime-local" name="Date">
+        <hr />
+        <input type="text" placeholder="betTimes" name="betTimes"/>
+        <hr />
         <input type="submit" />
     </form>
         </div>
 <hr />
  
-
 <h1>Upcoming bets</h1>
