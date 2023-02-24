@@ -1,10 +1,10 @@
 ﻿Scrp 
 - get future matches 
 
-
 - implement betting simulation
 
 - user bet history with statistics 
  
- - get the matches bet and 
+ - get the matches bet and
+
  if the bet is loose calculate nexst match
