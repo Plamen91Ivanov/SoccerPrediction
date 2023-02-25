@@ -1,53 +1,14 @@
 ﻿@model IEnumerable<BetInfo>
 
-<h1> OFFF </h1>
 <div class="container">
 </div>
-<hr />
 <table class="table">
-    <thead>
-        <tr>
-            <th>
-                Date
-            </th>
-            <th>
-                League
-            </th>
-            <th>
-                Home Team
-            </th>
-            <th>
-                Home Result
-            </th>
-            <th>
-                Away Result
-            </th>
-            <th>
-                Away Team
-            </th>
-            <th>
-                HomeTeamCoef
-            </th>
-            <th>
-                DrawCoef
-            </th>
-            <th>
-                AwayTeamCoef
-            </th>
-            <th>
-                Bet Times
-            </th>
-            <th>
-                Status
-            </th>
-        </tr>
-    </thead>
     <tbody>
         @foreach (var bet in Model)
         {
         <tr>
             <td>
-                @bet.Date.ToString("yyyy-MM-dd")
+                @bet.Date.ToString("yy-MM-dd")
             </td>
             <td>
                 @bet.League
@@ -84,10 +45,23 @@
     </tbody>
 </table>
 <hr />
+<h5>Add bet </h5>
+<hr />
 <div class="container">
     <form method="POST">
         <div>
-            <input type="text" placeholder="League" name="League" />
+            <select type="text" name="League">
+                <optgroup label="England">
+                    <option value="Premier League">Premier League</option>
+                    <option value="Championship">Championship</option>
+                    <option value="League One">League One</option>
+                    <option value="League Two">League Two</option>
+                </optgroup>
+                <optgroup label="UEFA">
+                    <option value="Champion League">Champion League</option>
+                    <option value="Europa League">Europa League</option>
+                </optgroup>
+            </select>
         </div>
         <hr />
         <div class=" row">
