@@ -28,12 +28,16 @@ namespace Soccer2.Controllers
         public IActionResult Bet()
         {
             var bets = this.bet.All();
-
             return View(bets);
         }
 
+        public IActionResult AddBet()
+        {
+            return View();
+        }
+
         [HttpPost]
-        public IActionResult Bet(string HomeTeam,
+        public IActionResult AddBet(string HomeTeam,
             string AwayTeam,
             int HomeResult,
             int AwayResult,

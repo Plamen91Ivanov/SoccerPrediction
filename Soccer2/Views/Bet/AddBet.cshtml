@@ -1,0 +1,73 @@
+﻿
+<div class="container">
+    <form method="POST">
+        <div>
+            <select type="text" name="League">
+                <optgroup label="England">
+                    <option value="Premier League">Premier League</option>
+                    <option value="Championship">Championship</option>
+                    <option value="League One">League One</option>
+                    <option value="League Two">League Two</option>
+                </optgroup>
+                <optgroup label="UEFA">
+                    <option value="Champion League">Champion League</option>
+                    <option value="Europa League">Europa League</option>
+                </optgroup>
+            </select>
+        </div>
+        <hr />
+        <div class=" row">
+            <div class="col-3">
+                <input type="text" placeholder="Home Team" name="HomeTeam" />
+            </div>
+            <div class="col-3">
+                <input type="text" placeholder="Home Team Result" name="HomeResult" />
+            </div>
+            <div class="col-3">
+                <input type="text" placeholder="Away Team Result" name="AwayResult" /> <br />
+            </div>
+            <div class="col-3">
+                <input type="text" placeholder="Away Team" name="AwayTeam" />
+            </div>
+        </div>
+        <hr />
+        <div class=" row">
+            <div class="col-4">
+                <input type="text" placeholder="Home Coef" name="HomeCoef" />
+            </div>
+            <div class="col-4">
+                <input type="text" placeholder="Draw Coef" name="DrawCoef" />
+            </div>
+            <div class="col-4">
+                <input type="text" placeholder="Away Coef" name="AwayCoef" />
+            </div>
+        </div>
+        <hr />
+        <div class="row">
+            <div class="col-3">
+                <input type="text" placeholder="Bet" name="Bet" /> <hr />
+            </div>
+            <div class="col-3">
+                <input type="text" placeholder="Bet Coef" name="BetCoef" /> <hr />
+            </div>
+            <div class="col-3">
+                <input type="text" placeholder="Bet Type" name="BetType" /> <hr />
+            </div>
+            <div class="col-3">
+                <input type="text" placeholder="Current Ballance" name="CurrentBalance" /> <hr />
+            </div>
+        </div>
+        <hr />
+        <select type="text" name="ResultStatus">
+            <option value="win">Win</option>
+            <option value="loose">Loose</option>
+            <option value="Current">Current</option>
+        </select>
+        <label for="date">date:</label>
+        <input type="datetime-local" name="Date">
+        <hr />
+        <input type="text" placeholder="betTimes" name="betTimes" />
+        <hr />
+        <input type="submit" />
+    </form>
+</div>
