@@ -2,13 +2,19 @@
 <h1>add future bet </h1>
 <form method="post">
     <label>League</label>
-    <input name="HomeTeam"/>
-    <label>HT</label>
     <input name="HomeTeam" />
+    <label>HT</label>
+    <input name="AwayTeam" />
     <label>AT</label>
     <input name="League" />
+    <label>Date</label>
+    <input type="datetime-local" name="Date" />
+    <label>Probability</label>
+    <input type="number" name="Probability" />
+    <label>Coefficient</label>
+    <input type="number" name="Coefficient" />
     <label>Comment</label>
-    <textarea name="Comment"  rows="4" cols="100"></textarea>
+    <textarea name="Comment" rows="4" cols="100"></textarea>
     <hr />
     <input type="submit" />
 </form>

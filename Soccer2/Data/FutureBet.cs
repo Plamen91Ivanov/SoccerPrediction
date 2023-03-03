@@ -16,5 +16,11 @@ namespace Soccer2.Data
         public string League { get; set; }
 
         public string Comment { get; set; }
+
+        public DateTime Date { get; set; }
+
+        public int Probability { get; set; }
+
+        public double Coefficient { get; set; }
     }
 }

@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Soccer2.Data;
 
 namespace Soccer2.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230303072117_futureBetFix")]
+    partial class futureBetFix
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -303,9 +305,6 @@ namespace Soccer2.Migrations
 
                     b.Property<string>("AwayTeam")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<double>("Coefficient")
-                        .HasColumnType("float");
 
                     b.Property<string>("Comment")
                         .HasColumnType("nvarchar(max)");
