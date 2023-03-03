@@ -1,0 +1,10 @@
+﻿@model IEnumerable<FutureBet>
+
+@foreach (var bet in Model)
+{
+    <p>@bet.HomeTeam</p>
+    <p>@bet.AwayTeam</p>
+    <p>@bet.League</p>
+    <p>@bet.Comment</p>
+    <hr />
+}

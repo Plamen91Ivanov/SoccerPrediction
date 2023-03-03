@@ -36,6 +36,34 @@ namespace Soccer2.Controllers
             return View();
         }
 
+        public IActionResult FutureBet()
+        {
+            var futureBet = this.db.FutureBet.ToList();
+            return View(futureBet);
+        }
+
+        public IActionResult AddFutureBet()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult AddFutureBet(FutureBetModel futureBetForm)
+        {
+
+            var futureBet = new FutureBet
+            {
+                HomeTeam = futureBetForm.HomeTeam,
+                AwayTeam = futureBetForm.AwayTeam,
+                League = futureBetForm.League,
+                Comment = futureBetForm.Comment,
+            };
+            this.db.FutureBet.Add(futureBet);
+            this.db.SaveChanges();
+
+            return View();
+        }
+
         [HttpPost]
         public IActionResult AddBet(string HomeTeam,
             string AwayTeam,

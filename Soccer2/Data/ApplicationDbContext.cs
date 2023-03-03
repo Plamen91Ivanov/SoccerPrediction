@@ -37,6 +37,8 @@ namespace Soccer2.Data
         public DbSet<GameInfo> GamesInfo { get; set; }
 
         public DbSet<BetInfo> BetInfo { get; set; }
+            
+        public DbSet<FutureBet> FutureBet { get; set; }
 
     }
 }
