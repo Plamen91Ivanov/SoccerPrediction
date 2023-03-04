@@ -37,6 +37,8 @@ namespace Soccer2.Data
 
         public double Bet { get; set; }
 
+        public string Nation { get; set; }
+
         public double BetCoef { get; set; }
 
         public string BetType { get; set; }

@@ -37,14 +37,14 @@ namespace Soccer2.Controllers
                 .Select(n => new NationalModel
                 {
                     Name = n.Name,
-                    League = n.Leagues.Select(l => new League
+                    Leagues = n.Leagues.Select(l => new League
                     {
                         Name = l.Name
-                    }),
+                    }).ToList(),
                 })
                 .ToList();
 
-            return View();
+            return View(getNational);
         }
 
         public IActionResult FutureBet()
@@ -93,6 +93,9 @@ namespace Soccer2.Controllers
             DateTime Date
             )
         {
+            var Split = League.Split('-');
+            var Nation = Split[0];
+            var Leagues = Split[1];
             var WinPrice = Bet * BetCoef;
             var betModel = new BetInfo
             {
@@ -107,8 +110,9 @@ namespace Soccer2.Controllers
                 BetType = BetType,
                 BetCoef = BetCoef,
                 WinPrice = WinPrice,
+                Nation = Nation,
                 ResultStatus = ResultStatus,
-                League = League,
+                League = Leagues,
                 Date = Date,
                 BetTimes = BetTimes,
             };

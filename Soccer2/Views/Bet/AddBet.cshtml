@@ -1,9 +1,9 @@
-﻿@model IEnumerable<National>
+﻿@model IEnumerable<NationalModel>
 
 <div class="container">
     <form method="POST">
         <div>
-            <select type="text" name="League">
+            @*<select type="text" name="League">
                 <optgroup label="England">
                     <option value="Premier League">Premier League</option>
                     <option value="Championship">Championship</option>
@@ -14,7 +14,19 @@
                     <option value="Champion League">Champion League</option>
                     <option value="Europa League">Europa League</option>
                 </optgroup>
+            </select>*@
+            <select type="text" name="League">
+                @foreach (var nation in Model)
+                {
+                    <optgroup label="@nation.Name">
+                        @foreach (var League in nation.Leagues)
+                        {
+                            <option value="@nation.Name-@League.Name">@League.Name</option>
+                        }
+                    </optgroup>
+                }
             </select>
+            <hr />
             <a class="btn" asp-controller="National" asp-action="addLeague">AddLeague</a>
         </div>
         <hr />

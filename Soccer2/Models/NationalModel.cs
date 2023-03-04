@@ -10,6 +10,6 @@ namespace Soccer2.Models
     {
         public string Name { get; set; }
 
-        public IEnumerable<League> League { get; set; }
+        public IEnumerable<League> Leagues { get; set; }
     }
 }
