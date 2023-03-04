@@ -40,5 +40,9 @@ namespace Soccer2.Data
             
         public DbSet<FutureBet> FutureBet { get; set; }
 
+        public DbSet<National> National { get; set; }
+
+        public DbSet<League> League { get; set; }
+
     }
 }

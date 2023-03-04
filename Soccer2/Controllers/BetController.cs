@@ -33,6 +33,17 @@ namespace Soccer2.Controllers
 
         public IActionResult AddBet()
         {
+            var getNational = this.db.National
+                .Select(n => new NationalModel
+                {
+                    Name = n.Name,
+                    League = n.Leagues.Select(l => new League
+                    {
+                        Name = l.Name
+                    }),
+                })
+                .ToList();
+
             return View();
         }
 
