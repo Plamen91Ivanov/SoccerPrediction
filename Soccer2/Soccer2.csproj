@@ -31,7 +31,6 @@
     <Folder Include="Areas\Team\Data\" />
     <Folder Include="Areas\Team\Models\" />
     <Folder Include="Areas\Team\Views\" />
-    <Folder Include="Views\Match\" />
     <Folder Include="wwwroot\images\" />
   </ItemGroup>
 

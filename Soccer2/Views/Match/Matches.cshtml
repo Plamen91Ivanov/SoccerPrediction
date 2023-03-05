@@ -1,0 +1,16 @@
+﻿@model IEnumerable<Game>
+
+
+<h1>Today</h1>
+<h1>Yesterday</h1>
+<h1>Tommorow</h1>
+<h1>Today</h1>
+
+
+@foreach (var game in Model)
+{
+    <p>@game.Date</p>
+    <p>>@game.HomeTeam -</p>
+    <p>@game.AwayTeam</p>
+
+}
