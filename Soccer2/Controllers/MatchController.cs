@@ -18,8 +18,18 @@ namespace Soccer2.Controllers
 
         public IActionResult Matches()
         {
-            var matches = this.db.Games.ToList();
+            var Today = DateTime.Today.ToString("s").Split('T')[0];
 
+            var matches = this.db.TestDateTime
+                .Where(x => x.Date == Today)
+                .OrderBy(x => x.Time)
+                .ToList();
+
+            var Todayy = DateTime.Today;
+            var testt = DateTime.Today;
+            //2022 - 11 - 08
+            var test = this.db.Games.Where(x => x.Date.Date == Todayy).ToList();
+            var test1 = this.db.Games.Where(x => x.Date.Date == testt).ToList();
             return View(matches);
         }
     }

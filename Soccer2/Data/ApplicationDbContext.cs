@@ -44,5 +44,7 @@ namespace Soccer2.Data
 
         public DbSet<League> League { get; set; }
 
+        public DbSet<TestDateTime> TestDateTime { get; set; }
+
     }
 }

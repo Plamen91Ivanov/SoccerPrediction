@@ -169,11 +169,9 @@ namespace Soccer2.Controllers
                             else
                             {
                                  ReversedDate = $"{t[2]}.{t[1]}.{t[0]}";
-
                             }
                             date = DateTime.Parse(ReversedDate);
                     }
-
 
                     var getHomeTeamId = db.Teams.Where(x => x.Name == HomeTeam).ToArray();
                     var getAwayTeamId = db.Teams.Where(x => x.Name == AwayTeam).ToArray();
