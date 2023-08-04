@@ -18,7 +18,6 @@ namespace Soccer2.Data
 
         public int AwayResult { get; set; }
 
-
         public double HomeCoef { get; set; }
 
         public double DrawCoef { get; set; }

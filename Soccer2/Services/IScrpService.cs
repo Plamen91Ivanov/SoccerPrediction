@@ -7,6 +7,6 @@ namespace Soccer2.Services
 {
     public interface IScrpService
     {
-
+        void ScrpFutureMatches();
     }
 }

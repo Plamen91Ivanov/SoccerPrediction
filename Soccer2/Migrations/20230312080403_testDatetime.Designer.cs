@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Soccer2.Data;
 
 namespace Soccer2.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230312080403_testDatetime")]
+    partial class testDatetime
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -493,12 +495,6 @@ namespace Soccer2.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("NDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("NDatee")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("NDateee")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Time")
